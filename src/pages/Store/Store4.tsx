@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC /* useMemo */ } from "react";
 import { DEFAULT_ITEMS } from "../../data/data2";
 import { useSearchParams } from "react-router-dom";
 import { ArticleType } from "../../types/article";
 import style from "./Store.module.scss";
+// import { filterData } from "../../utils/filterData";
 
 const Store: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,16 +15,12 @@ const Store: FC = () => {
   };
   console.log("queryParams:", queryParams);
 
-  // const items: string[] = DEFAULT_ITEMS.filter((item) => {
-  //   return (
-  //     item.toLowerCase().includes(queryParams.q?.toLowerCase()) &&
-  //     (!queryParams.onlyComputerItems ||
-  //       (queryParams.onlyComputerItems &&
-  //         (item === "Computer" || item === "Keyboard")))
-  //   );
-  // });
-
   const items: ArticleType[] = DEFAULT_ITEMS;
+
+  // const filteredItems = useMemo(
+  //   () => filterData(DEFAULT_ITEMS, filters),
+  //   [DEFAULT_ITEMS, filters]
+  // );
 
   const handleSearch = (key: string, value: string | boolean) => {
     setSearchParams(
