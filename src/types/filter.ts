@@ -1,5 +1,5 @@
-type FilterType = {
-  [key: string]: string;
-};
+// type FilterType = {
+//   [key: string]: string;
+// };
 
-export type { FilterType };
+// export type { FilterType };

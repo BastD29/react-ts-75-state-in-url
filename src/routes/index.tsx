@@ -1,6 +1,7 @@
 import { RouteObject } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import { Home, NotFound, Store } from "./routes";
+import { FilterProvider } from "../context/FilterContext/FilterProvider";
 
 const routes: RouteObject[] = [
   {
@@ -8,7 +9,14 @@ const routes: RouteObject[] = [
     element: <Layout />,
     children: [
       { path: "", element: <Home /> },
-      { path: "store", element: <Store /> },
+      {
+        path: "store",
+        element: (
+          <FilterProvider>
+            <Store />
+          </FilterProvider>
+        ),
+      },
     ],
   },
   {
