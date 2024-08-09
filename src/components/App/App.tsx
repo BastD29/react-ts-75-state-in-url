@@ -1,12 +1,14 @@
-import { FC } from "react";
-import Chat from "../Chat/Chat";
-import style from "./App.module.scss";
+import { FC, Suspense } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { routes } from "../../routes";
 
 const App: FC = () => {
+  const router = createBrowserRouter(routes);
+
   return (
-    <div className={style["app"]}>
-      <Chat />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
   );
 };
 

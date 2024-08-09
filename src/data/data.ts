@@ -1,21 +1,3 @@
-import { ListType } from "../types/types";
+const DEFAULT_ITEMS: string[] = ["Computer", "Book", "Bike", "Keyboard", "Cup"];
 
-const INITIAL_LIST: ListType[] = [
-  {
-    id: "1",
-    firstName: "Robin",
-    lastName: "Wieruch",
-  },
-  {
-    id: "2",
-    firstName: "Aiden",
-    lastName: "Kettel",
-  },
-  {
-    id: "3",
-    firstName: "Jannet",
-    lastName: "Layn",
-  },
-];
-
-export { INITIAL_LIST };
+export { DEFAULT_ITEMS };
