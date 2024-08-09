@@ -6,4 +6,8 @@ type ArticleType = {
   inStock: boolean;
 };
 
-export type { ArticleType };
+// type QueryParamsType = {
+//   [key: string]: string;
+// };
+
+export type { ArticleType /* QueryParamsType */ };
