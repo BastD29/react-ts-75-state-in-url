@@ -1,40 +1,17 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import { DEFAULT_ITEMS } from "../../data/data2";
 import { useSearchParams } from "react-router-dom";
-import { ArticleType } from "../../types/article";
+import { filterItems } from "../../utils/filterData2";
 import style from "./Store.module.scss";
 
 const Store: FC = () => {
   const [filters, setFilters] = useSearchParams();
   console.log("filters:", filters.toString());
 
-  const queryParams = {
-    name: filters.get("name") || "",
-    category: filters.get("category") || "",
-    price: filters.get("price") || "",
-    inStock: filters.get("inStock") === "true",
-  };
-  console.log("queryParams:", queryParams);
-
-  const items: ArticleType[] = DEFAULT_ITEMS;
-  console.log("items:", items);
-
-  const filteredItems = items.filter((item) => {
-    const matchesName = queryParams.name
-      ? item.name.toLowerCase().includes(queryParams.name.toLowerCase())
-      : true;
-    const matchesCategory = queryParams.category
-      ? item.category.toLowerCase() === queryParams.category.toLowerCase()
-      : true;
-    const matchesPrice = queryParams.price
-      ? item.price <= parseFloat(queryParams.price)
-      : true;
-    const matchesInStock = queryParams.inStock
-      ? item.inStock === queryParams.inStock
-      : true;
-
-    return matchesName && matchesCategory && matchesPrice && matchesInStock;
-  });
+  const filteredItems = useMemo(
+    () => filterItems(DEFAULT_ITEMS, filters),
+    [DEFAULT_ITEMS, filters]
+  );
 
   const handleFilter = (key: string, value: string | boolean) => {
     setFilters(
@@ -54,7 +31,8 @@ const Store: FC = () => {
         <input
           type="search"
           id="name"
-          value={queryParams.name}
+          // value={queryParams.name}
+          value={filters.get("name") || ""}
           onChange={(e) => handleFilter("name", e.target.value)}
           placeholder="Name"
         />
@@ -64,7 +42,8 @@ const Store: FC = () => {
         <input
           type="checkbox"
           id="inStock"
-          checked={queryParams.inStock}
+          // checked={queryParams.inStock}
+          checked={filters.get("inStock") === "true"}
           onChange={(e) => handleFilter("inStock", e.target.checked)}
         />
       </div>
@@ -75,17 +54,20 @@ const Store: FC = () => {
           id="price"
           min="0"
           max="1200"
-          value={queryParams.price}
+          // value={queryParams.price}
+          value={filters.get("price") || ""}
           onChange={(e) => handleFilter("price", e.target.value)}
         />
-        <span>{queryParams.price}</span>
+        {/* <span>{queryParams.price}</span> */}
+        <span>{filters.get("price") || ""}</span>
       </div>
       <div className={style["store__filter"]}>
         <label htmlFor="category">Category</label>
         <select
           name="category"
           id="category"
-          value={queryParams.category}
+          // value={queryParams.category}
+          value={filters.get("category") || ""}
           onChange={(e) => handleFilter("category", e.target.value)}
         >
           <option value="">All Categories</option>
