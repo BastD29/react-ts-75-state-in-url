@@ -1,7 +1,7 @@
 import { RouteObject } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import { Home, NotFound, Store } from "./routes";
-import { FilterProvider } from "../context/FilterContext/FilterProvider";
+import { FilterProvider } from "../context/FilterContext/FilterProvider2";
 
 const routes: RouteObject[] = [
   {

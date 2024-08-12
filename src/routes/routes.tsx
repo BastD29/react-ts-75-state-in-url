@@ -1,7 +1,7 @@
 import { FC, LazyExoticComponent, lazy } from "react";
 
 const Store: LazyExoticComponent<FC> = lazy(
-  () => import("../pages/Store/Store5")
+  () => import("../pages/Store/Store6")
 );
 
 const Home: LazyExoticComponent<FC> = lazy(() => import("../pages/Home/Home"));

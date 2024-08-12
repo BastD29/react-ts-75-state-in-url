@@ -1,19 +1,21 @@
-import { FC, ReactNode } from "react";
-import { useSearchParams } from "react-router-dom";
-import { FilterContext } from "./FilterContext";
+// import { FC, ReactNode } from "react";
+// import { useSearchParams } from "react-router-dom";
+// import { FilterContext } from "./FilterContext";
 
-type FilterProviderProps = {
-  children: ReactNode;
-};
+// type FilterProviderProps = {
+//   children: ReactNode;
+// };
 
-const FilterProvider: FC<FilterProviderProps> = ({ children }) => {
-  const [filters, setFilters] = useSearchParams();
+// const FilterProvider: FC<FilterProviderProps> = ({ children }) => {
+//   const [filters, setFilters] = useSearchParams();
 
-  return (
-    <FilterContext.Provider value={{ filters, setFilters }}>
-      {children}
-    </FilterContext.Provider>
-  );
-};
+//   console.log("filters:", filters.toString());
 
-export { FilterProvider };
+//   return (
+//     <FilterContext.Provider value={{ filters, setFilters }}>
+//       {children}
+//     </FilterContext.Provider>
+//   );
+// };
+
+// export { FilterProvider };
