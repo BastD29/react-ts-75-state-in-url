@@ -1,7 +1,8 @@
 import { RouteObject } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import { Home, NotFound, Store } from "./routes";
-import { FilterProvider } from "../context/FilterContext/FilterProvider2";
+import PaginatedStore from "../pages/PaginatedStore/PaginatedStore";
+// import { FilterProvider } from "../context/FilterContext/FilterProvider2";
 
 const routes: RouteObject[] = [
   {
@@ -11,11 +12,12 @@ const routes: RouteObject[] = [
       { path: "", element: <Home /> },
       {
         path: "store",
-        element: (
-          <FilterProvider>
-            <Store />
-          </FilterProvider>
-        ),
+        // element: (
+        //   <FilterProvider>
+        //     <Store />
+        //   </FilterProvider>
+        // ),
+        element: <PaginatedStore />,
       },
     ],
   },
