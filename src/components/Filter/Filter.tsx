@@ -18,7 +18,7 @@ const Filter: FC<FilterPropsType> = ({ searchParams, setSearchParams }) => {
 
   return (
     <div className={style["filter"]}>
-      <div className={style["store__filter"]}>
+      <div className={style["filter__filter"]}>
         <label htmlFor="name">Name</label>
         <input
           type="search"
@@ -28,7 +28,7 @@ const Filter: FC<FilterPropsType> = ({ searchParams, setSearchParams }) => {
           placeholder="Name"
         />
       </div>
-      <div className={style["store__filter"]}>
+      <div className={style["filter__filter"]}>
         <label htmlFor="inStock">In stock</label>
         <input
           type="checkbox"
@@ -37,7 +37,7 @@ const Filter: FC<FilterPropsType> = ({ searchParams, setSearchParams }) => {
           onChange={(e) => handleFilter("inStock", e.target.checked)}
         />
       </div>
-      <div className={style["store__filter"]}>
+      <div className={style["filter__filter"]}>
         <label htmlFor="price">Price</label>
         <input
           type="range"
@@ -49,7 +49,7 @@ const Filter: FC<FilterPropsType> = ({ searchParams, setSearchParams }) => {
         />
         <span>{searchParams.get("price") || ""}</span>
       </div>
-      <div className={style["store__filter"]}>
+      <div className={style["filter__filter"]}>
         <label htmlFor="category">Category</label>
         <select
           name="category"

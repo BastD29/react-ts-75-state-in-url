@@ -1,6 +1,6 @@
 import { FC, useMemo } from "react";
 import { DEFAULT_ITEMS } from "../../data/data2";
-import { filterItems } from "../../utils/filterData2";
+import { filterItems } from "../../utils/filterItems";
 import { useFilterContext } from "../../hooks/useFilterContext2";
 import { SET_FILTER } from "../../constants/actions";
 import style from "./Store.module.scss";
