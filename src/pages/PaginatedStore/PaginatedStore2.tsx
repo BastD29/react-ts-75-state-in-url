@@ -9,7 +9,7 @@ import style from "./PaginatedStore.module.scss";
 
 const PaginatedStore: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log("searchParams:", searchParams.toString());
+  // console.log("searchParams:", searchParams.toString());
 
   const paginatedItems = useMemo(
     () => paginateItems(DEFAULT_ITEMS, searchParams),
